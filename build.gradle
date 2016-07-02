@@ -1,6 +1,6 @@
 repositories {
-  mavenCentral()
-  jcenter()
+    mavenCentral()
+    jcenter()
 }
 
 apply plugin: 'java'
@@ -18,11 +18,12 @@ targetCompatibility = 1.8
 version = '1.0.0'
 
 dependencies {
-  compile 'com.google.guava:guava:19.0'
-  testCompile 'com.google.guava:guava-testlib:19.0'
-  testCompile 'org.codehaus.groovy:groovy-all:2.4.6'
-  testCompile 'junit:junit:4.1.2'
-  testCompile 'org.mockito:mockito-core:1.9.5'
+    compile 'com.google.guava:guava:19.0'
+    compile 'com.opencsv:opencsv:3.7'
+    testCompile 'com.google.guava:guava-testlib:19.0'
+    testCompile 'org.codehaus.groovy:groovy-all:2.4.6'
+    testCompile 'junit:junit:4.1.2'
+    testCompile 'org.mockito:mockito-core:1.9.5'
 }
 
 jar {
@@ -40,7 +41,7 @@ codenarc {
 }
 
 codenarcTest {
-    configFile = rootProject.file('config/codenarc/rulesetTest.groovy')
+    configFile = rootProject.file('gradle/config/codenarc/rulesetTest.groovy')
 }
 
 tasks.withType(FindBugs) {
