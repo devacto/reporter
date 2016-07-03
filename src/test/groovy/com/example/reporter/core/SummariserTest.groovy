@@ -56,6 +56,6 @@ class SummariserTest {
 
     @Test
     void "calculates the correct participation rate"() {
-        assert summary.participationPercentage == (double) 2 / (double) 3
+        assert summary.participationRate == (double) 2 / (double) 3
     }
 }

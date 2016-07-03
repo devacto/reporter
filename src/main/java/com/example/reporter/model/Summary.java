@@ -6,7 +6,7 @@ public class Summary {
 
     private final int participantCount;
 
-    private final double participationPercentage; // XX.XX
+    private final double participationRate; // 0.XX
 
     private final ImmutableList<RatingQuestionResult> ratingQuestionResults;
 
@@ -18,13 +18,13 @@ public class Summary {
         return participantCount;
     }
 
-    public double getParticipationPercentage() {
-        return participationPercentage;
+    public double getParticipationRate() {
+        return participationRate;
     }
 
-    public Summary(int participantCount, double participationPercentage, ImmutableList<RatingQuestionResult> results) {
+    public Summary(int participantCount, double participationRate, ImmutableList<RatingQuestionResult> results) {
         this.participantCount = participantCount;
-        this.participationPercentage = participationPercentage;
+        this.participationRate = participationRate;
         this.ratingQuestionResults = results;
     }
 }
