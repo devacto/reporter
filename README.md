@@ -1,14 +1,16 @@
 # reporter
 
-This app summarises survey results (in csv format) and produces a nice console output.
+This app summarises survey results (in csv format) and produces a nice console output. Detailed instructions [here](../INSTRUCTIONS.md).
 
-### Using it
+## Usage
 
-Clone the repo using `git clone`.
+1. Clone the repo.
+2. Then run `./gradlew installDist` to create the binary.
 
-Then run `./gradlew installDist` to create the binary.
-
-Then run `./build/install/reporter/bin/reporter ./example-data/survey-1.csv ./example-data/survey-1-responses.csv`.
+To see a sample result, run:
+```
+./build/install/reporter/bin/reporter ./example-data/survey-1.csv ./example-data/survey-1-responses.csv
+```
 
 Your output should look something like:
 
@@ -36,3 +38,7 @@ Q: I am appropriately involved in decisions that affect my work.
 Average rating: 3.6
 ----------------------------------------------
 ```
+
+## Running various tests
+
+`./gradlew` would run all the checks like what is being run in Travis.
