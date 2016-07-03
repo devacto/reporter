@@ -1,8 +1,5 @@
 package com.example.reporter;
 
-import com.example.reporter.model.Survey;
-import com.example.reporter.parser.SurveyParser;
-
 import java.io.IOException;
 
 import static java.lang.System.exit;
@@ -15,7 +12,10 @@ public class Application {
             exit(1);
         }
 
-        Survey survey = SurveyParser.parse(args[0]);
-        System.out.println(survey.toString());
+        // Survey survey = SurveyParser.parse(args[0]);
+        // List<Response> responses = ResponseParser.parse(args[1]);
+
+        // Summary summary = Summariser.summarise(survey, responses)
+        // ConsolePrinter.print(summary);
     }
 }
