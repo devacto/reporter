@@ -1,9 +1,11 @@
-package com.example.reporter.parser
+package com.example.reporter.core
 
 import com.example.reporter.model.Question
 import com.example.reporter.model.Survey
+import groovy.transform.CompileStatic
 import org.junit.Test
 
+@CompileStatic
 class SurveyParserTest {
 
     @Test

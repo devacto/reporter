@@ -1,4 +1,4 @@
-package com.example.reporter.parser;
+package com.example.reporter.core;
 
 import com.example.reporter.builder.SurveyBuilder;
 import com.example.reporter.model.Question;

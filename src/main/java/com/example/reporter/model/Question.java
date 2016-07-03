@@ -32,6 +32,10 @@ public class Question {
         return text;
     }
 
+    public boolean ratingQuestion() {
+        return this.type == Type.RATING;
+    }
+
     @Override
     public String toString() {
         return MoreObjects

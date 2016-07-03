@@ -1,4 +1,4 @@
-package com.example.reporter.parser;
+package com.example.reporter.core;
 
 import com.example.reporter.builder.ResponseBuilder;
 import com.example.reporter.model.Response;
@@ -24,10 +24,8 @@ public class ResponseParser {
         List<Response> responses = new ArrayList<>();
 
         for (CSVRecord record : records) {
-
             ResponseBuilder builder = new ResponseBuilder();
 
-            // Adding a single row.
             builder.email(record.get(0))
                    .employeeId(record.get(1))
                    .submittedAt(record.get(2));

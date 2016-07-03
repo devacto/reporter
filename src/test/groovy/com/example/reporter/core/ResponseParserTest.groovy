@@ -1,13 +1,22 @@
-package com.example.reporter.parser
+package com.example.reporter.core
 
 import com.example.reporter.model.Response
+import groovy.transform.CompileStatic
+import org.junit.Before
 import org.junit.Test
 
+@CompileStatic
 class ResponseParserTest {
+
+    private List<Response> responses
+
+    @Before
+    void setup() {
+        responses = ResponseParser.parse('./example-data/survey-1-responses.csv')
+    }
 
     @Test
     void "should correctly parse a survey response file"() {
-        List<Response> responses = ResponseParser.parse('./example-data/survey-1-responses.csv')
         Response firstResponse = responses.first()
 
         assert firstResponse.employeeEmail   == 'employee1@abc.xyz'
