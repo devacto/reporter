@@ -1,6 +1,6 @@
 # reporter
 
-This app summarises survey results (in csv format) and produces a nice console output. Detailed instructions [here](../INSTRUCTIONS.md).
+This app summarises survey results (in csv format) and produces a nice console output. Detailed instructions [here](./INSTRUCTIONS.md).
 
 ## Usage
 
