@@ -1,4 +1,4 @@
-# reporter
+# reporter [![Build Status](https://travis-ci.org/devacto/reporter.svg?branch=master)](https://travis-ci.org/devacto/reporter)
 
 This app summarises survey results (in csv format) and produces a nice console output. Detailed instructions [here](./INSTRUCTIONS.md).
 
