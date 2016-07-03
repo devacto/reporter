@@ -1,34 +1,46 @@
 package com.example.reporter.parser;
 
-import com.opencsv.CSVReader;
+import com.example.reporter.builder.SurveyBuilder;
+import com.example.reporter.model.Question;
+import com.example.reporter.model.Survey;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static java.lang.System.exit;
-
 public class SurveyParser {
 
-    public static void parse(String path) {
+    public static Survey parse(String path) throws IOException {
+        SurveyBuilder builder = new SurveyBuilder();
 
-        try {
-            CSVReader reader = new CSVReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
+        InputStreamReader reader = new InputStreamReader(new FileInputStream(path), "UTF-8");
 
-            // Do not read the first line which is the header line.
-            reader.readNext();
+        Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(reader);
 
-            // Read the second line onwards.
-            String[] nextLine;
-            while ((nextLine = reader.readNext()) != null) {
-                System.out.printf("%s %s %s %n", nextLine[0], nextLine[1], nextLine[2]);
-            }
+        for (CSVRecord record : records) {
 
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            exit(1);
+            String theme = record.get("theme");
+            Question.Type type = convertToType(record.get("type"));
+            String text = record.get("text");
+
+            builder.addQuestion(theme, type, text);
         }
 
+        return builder.build();
+    }
+
+    private static Question.Type convertToType(String questionType) {
+        Question.Type type;
+
+        if (questionType.equalsIgnoreCase("ratingquestion")) {
+            type = Question.Type.RATING;
+        } else {
+            type = Question.Type.SINGLE_SELECT;
+        }
+
+        return type;
     }
 
 }

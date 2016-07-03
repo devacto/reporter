@@ -19,7 +19,7 @@ version = '1.0.0'
 
 dependencies {
     compile 'com.google.guava:guava:19.0'
-    compile 'com.opencsv:opencsv:3.7'
+    compile 'org.apache.commons:commons-csv:1.4'
     testCompile 'com.google.guava:guava-testlib:19.0'
     testCompile 'org.codehaus.groovy:groovy-all:2.4.6'
     testCompile 'junit:junit:4.1.2'
