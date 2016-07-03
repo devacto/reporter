@@ -58,4 +58,4 @@ jacocoTestReport {
     }
 }
 
-defaultTasks 'clean', 'check'
+defaultTasks 'clean', 'check', 'jacocoTestReport'
