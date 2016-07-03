@@ -1,5 +1,3 @@
-# Culture Amp's Developer Coding Test
-
 Your task is to build a CLI application to parse and display survey data from CSV files, and display the results.
 
 ## Data Format
