@@ -5,13 +5,15 @@ import com.example.reporter.model.Summary;
 
 class ConsolePrinter {
 
+    public static final double ONE_HUNDRED = 100.0;
+
     static void print(Summary s) {
 
         System.out.println("----------------------------------------------");
         System.out.println("Survey Summary");
         System.out.println("----------------------------------------------");
         System.out.printf("Participant count: %d%n", s.getParticipantCount());
-        System.out.printf("Participation percentage: %.1f%n", s.getParticipationRate() * 100.0);
+        System.out.printf("Participation percentage: %.1f%n", s.getParticipationRate() * ONE_HUNDRED);
         System.out.println("----------------------------------------------");
 
         for (RatingQuestionResult r : s.getRatingQuestionResults()) {

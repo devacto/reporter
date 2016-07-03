@@ -9,7 +9,6 @@ import com.example.reporter.model.Survey;
 import com.google.common.collect.ImmutableList;
 
 import java.io.IOException;
-import java.util.List;
 
 import static java.lang.System.exit;
 
