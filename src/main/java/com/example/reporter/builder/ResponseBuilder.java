@@ -1,9 +1,7 @@
 package com.example.reporter.builder;
 
 import com.example.reporter.model.Response;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.google.common.collect.ImmutableList;
 
 public class ResponseBuilder {
 
@@ -13,10 +11,10 @@ public class ResponseBuilder {
 
     private String submittedAt;
 
-    private List<String> answers;
+    private final ImmutableList.Builder<String> answersBuilder;
 
     public ResponseBuilder() {
-        this.answers = new ArrayList<>();
+        this.answersBuilder = ImmutableList.builder();
     }
 
     public ResponseBuilder email(String employeeEmail) {
@@ -35,11 +33,11 @@ public class ResponseBuilder {
     }
 
     public ResponseBuilder addAnswer(String answer) {
-        this.answers.add(answer);
+        this.answersBuilder.add(answer);
         return this;
     }
 
     public Response build() {
-        return new Response(employeeEmail, employeeId, submittedAt, this.answers);
+        return new Response(employeeEmail, employeeId, submittedAt, this.answersBuilder.build());
     }
 }

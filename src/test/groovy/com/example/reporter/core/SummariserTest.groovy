@@ -4,6 +4,7 @@ import com.example.reporter.model.Question
 import com.example.reporter.model.Response
 import com.example.reporter.model.Summary
 import com.example.reporter.model.Survey
+import com.google.common.collect.ImmutableList
 import groovy.transform.CompileStatic
 import org.junit.Before
 import org.junit.Test
@@ -22,11 +23,11 @@ class SummariserTest {
         Question q1 = new Question('The Work', Question.Type.RATING, 'I like working here.')
         Question q2 = new Question('The Work', Question.Type.SINGLE_SELECT, 'Manager')
 
-        survey = new Survey([q1, q2])
+        survey = new Survey(ImmutableList.builder().add(q1).add(q2).build())
 
-        Response r1 = new Response('abc@def', '1', '2016-01-01', ['5', 'Victor'])
-        Response r2 = new Response('ghi@jkl', '2', '2016-02-01', ['2', 'Victor'])
-        Response r3 = new Response('mno@pqr', '3', '', ['3', 'Victor'])
+        Response r1 = new Response('abc@def', '1', '2016-01-01', ImmutableList.builder().add('5').add('Victor').build())
+        Response r2 = new Response('ghi@jkl', '2', '2016-02-01', ImmutableList.builder().add('2').add('Victor').build())
+        Response r3 = new Response('mno@pqr', '3', '', ImmutableList.builder().add('3').add('Victor').build())
 
         responses = [r1, r2, r3]
 
