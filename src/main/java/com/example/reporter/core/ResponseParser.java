@@ -2,6 +2,7 @@ package com.example.reporter.core;
 
 import com.example.reporter.builder.ResponseBuilder;
 import com.example.reporter.model.Response;
+import com.google.common.collect.ImmutableList;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
@@ -15,13 +16,13 @@ public class ResponseParser {
 
     public static final int ANSWER_STARTING_INDEX = 3;
 
-    public static List<Response> parse(String path) throws IOException {
+    public static ImmutableList<Response> parse(String path) throws IOException {
 
         InputStreamReader reader = new InputStreamReader(new FileInputStream(path), "UTF-8");
 
         Iterable<CSVRecord> records = CSVFormat.RFC4180.parse(reader);
 
-        List<Response> responses = new ArrayList<>();
+        ImmutableList.Builder responseListBuilder = ImmutableList.builder();
 
         for (CSVRecord record : records) {
             ResponseBuilder builder = new ResponseBuilder();
@@ -34,10 +35,10 @@ public class ResponseParser {
                 builder.addAnswer(record.get(i));
             }
 
-            responses.add(builder.build());
+            responseListBuilder.add(builder.build());
         }
 
-        return responses;
+        return responseListBuilder.build();
     }
 
 }
