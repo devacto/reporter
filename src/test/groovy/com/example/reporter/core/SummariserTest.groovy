@@ -46,7 +46,7 @@ class SummariserTest {
 
     @Test
     void "calculates the correct average rating"() {
-        assert summary.ratingQuestionResults.first().averageRating == (double) 1.5
+        assert summary.ratingQuestionResults.first().averageRating == (double) 3.5
     }
 
     @Test

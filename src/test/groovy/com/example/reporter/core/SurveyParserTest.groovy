@@ -9,7 +9,7 @@ import org.junit.Test
 class SurveyParserTest {
 
     @Test
-    void "should parse a survey file"() {
+    void "parses a survey file"() {
         Survey survey = SurveyParser.parse('./example-data/survey-1.csv')
 
         assert survey.questions.first().theme == 'The Work'
@@ -18,7 +18,7 @@ class SurveyParserTest {
     }
 
     @Test
-    void "should parse a survey file with different header arrangement"() {
+    void "parses a survey file with different header arrangement"() {
         Survey survey = SurveyParser.parse('./example-data/survey-3.csv')
 
         assert survey.questions.first().theme == 'The Work'
@@ -27,7 +27,7 @@ class SurveyParserTest {
     }
 
     @Test(expected = IOException)
-    void "should throw IOException given wrong file"() {
+    void "throws IOException given wrong file"() {
         SurveyParser.parse('i-do-not-exist.csv')
     }
 }

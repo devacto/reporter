@@ -16,7 +16,7 @@ class ResponseParserTest {
     }
 
     @Test
-    void "should correctly parse a survey response file"() {
+    void "parses a survey response file"() {
         Response firstResponse = responses.first()
 
         assert firstResponse.employeeEmail   == 'employee1@abc.xyz'
@@ -25,7 +25,7 @@ class ResponseParserTest {
     }
 
     @Test(expected = IOException)
-    void "should throw IOException when given wrong path"() {
+    void "throws IOException when given wrong path"() {
         ResponseParser.parse('i-do-not-exist.csv')
     }
 }
