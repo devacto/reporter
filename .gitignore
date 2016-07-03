@@ -4,7 +4,8 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+build/libs/*.jar
+gradle/wrapper/*.jar
 *.war
 *.ear
 
